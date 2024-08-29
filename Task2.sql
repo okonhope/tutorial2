@@ -1,3 +1,5 @@
+USE DATABASE mydatabase;
+
 CREATE  OR REPLACE DATABASE mydatabase;
 
 CREATE OR REPLACE TEMPORARY TABLE mycsvtable
@@ -35,6 +37,20 @@ CREATE OR REPLACE STAGE my_csv_stage
 FILE_FORMAT = mycsvformat
 URL = 's3://snowflake-doc';
 
-CREATE OR REPLACE STAGE my_json
-FILE FORMAT = myjsonformat
+CREATE OR REPLACE STAGE my_json_stage
+FILE_FORMAT = myjsonformat
 URL = 's3://snowflake-docs';
+
+
+CREATE OR REPLACE STAGE external_stage
+FILE_FORMAT =mycsvformat
+URL = 's3://private-bucket';
+
+
+COPY INTO mycsvtable
+ FROM @my_csv_stage/tutorials/dataloading/contacts1.csv
+ ON_ERROR = 'skip_file';
+
+
+
+
