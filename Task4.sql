@@ -1,6 +1,6 @@
-USE DATABASE mydatabase;
+ CREATE OR REPLACE DATABASE homedb;
 
-USE schema mydatabase.public;
+USE schema homedb.public;
 
 CREATE OR REPLACE TEMPORARY TABLE home_sales (
     city STRING,
