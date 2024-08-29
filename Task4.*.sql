@@ -25,7 +25,7 @@ CREATE OR REPLACE FILE FORMAT sf_tut_json_format
 CREATE OR REPLACE TEMPORARY STAGE sf_tut_stage
  FILE_FORMAT = sf_tut_json_format;
 
- PUT file:///https://docs.snowflake.com/en/_downloads/b50c24de20be843b34f2535dfe67fd5e/sales.json  @sf_tut_stage AUTO_COMPRESS =TRUE;
+ PUT file:////workspaces/tutorial2/sales.json @sf_tut_stage AUTO_COMPRESS =TRUE;
 
  COPY INTO home_sales(city, state, zip, sale_date, price)
     FROM (SELECT SUBSTR($1:location.state_city,4),
