@@ -1,0 +1,10 @@
+USE ROLE USERADMIN;
+
+CREATE OR REPLACE USER cetpower
+PASSWORD = 'power'
+LOGIN_NAME = 'hopelyn'
+FIRST_NAME = 'hopelyn'
+LAST_NAME = 'okon'
+EMAIL = 'okona4380@gmail.com'
+MUST_CHANGE_PASSWORD = true
+DEFAULT_WAREHOUSE = COMPUTE_WH;
